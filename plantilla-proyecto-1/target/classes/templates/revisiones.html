@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisiones - AlohAndes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Revisiones</h1>
+        
+        <div th:if="${tipoBusqueda != null}" class="alert alert-info">
+            <span th:if="${tipoBusqueda == 'conductor'}">
+                Mostrando revisiones recibidas por el conductor ID: <strong th:text="${idBusqueda}"></strong>
+            </span>
+            <span th:if="${tipoBusqueda == 'cliente'}">
+                Mostrando revisiones realizadas por el cliente ID: <strong th:text="${idBusqueda}"></strong>
+            </span>
+            <span th:if="${tipoBusqueda == 'servicio'}">
+                Mostrando revisiones del servicio ID: <strong th:text="${idBusqueda}"></strong>
+            </span>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Servicio</th>
+                        <th>Revisor</th>
+                        <th>Receptor</th>
+                        <th>Calificación</th>
+                        <th>Comentario</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="revision : ${revisiones}">
+                        <td th:text="${revision.idRevision}"></td>
+                        <td th:text="${revision.servicio.idServicio}"></td>
+                        <td th:text="${revision.revisorUsuario.nombre}"></td>
+                        <td th:text="${revision.receptorUsuario.nombre}"></td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <span th:text="${revision.calificacion}"></span>
+                                <div class="ms-2">
+                                    <i class="bi bi-star-fill text-warning" 
+                                       th:each="i : ${#numbers.sequence(1, revision.calificacion)}"></i>
+                                </div>
+                            </div>
+                        </td>
+                        <td th:text="${revision.comentario}"></td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a th:href="@{/revisiones/{id}(id=${revision.idRevision})}" 
+                                   class="btn btn-sm btn-info">Ver</a>
+                                <a th:href="@{/revisiones/{id}/editar(id=${revision.idRevision})}" 
+                                   class="btn btn-sm btn-warning">Editar</a>
+                                <form th:action="@{/revisiones/{id}(id=${revision.idRevision})}" 
+                                      method="post" 
+                                      style="display: inline;">
+                                    <input type="hidden" name="_method" value="DELETE" />
+                                    <button type="submit" class="btn btn-sm btn-danger" 
+                                            onclick="return confirm('¿Estás seguro de que deseas eliminar esta revisión?')">
+                                        Eliminar
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-4">
+            <a href="/revisiones/nuevo" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Nueva Revisión
+            </a>
+            <a href="/" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Volver
+            </a>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

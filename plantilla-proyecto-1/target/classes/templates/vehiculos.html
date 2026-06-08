@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehículos registrados</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f7f7f7; }
+        h1 { color: #2c3e50; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+        th { background-color: #3498db; color: white; }
+        a.button, button { background: #2ecc71; color: white; padding: 8px 12px; text-decoration: none; border-radius: 5px; border: none; }
+        a.delete { background: #e74c3c; }
+        form { margin-top: 30px; background: white; padding: 20px; border-radius: 8px; }
+        label { display: block; margin-top: 10px; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Vehículos registrados</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Color</th>
+                <th>Placa</th>
+                <th>Ciudad</th>
+                <th>Capacidad</th>
+                <th>Nivel</th>
+                <th>ID Conductor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="vehiculo : ${vehiculos}">
+                <td th:text="${vehiculo.idVehiculo}"></td>
+                <td th:text="${vehiculo.tipo}"></td>
+                <td th:text="${vehiculo.marca}"></td>
+                <td th:text="${vehiculo.modelo}"></td>
+                <td th:text="${vehiculo.color}"></td>
+                <td th:text="${vehiculo.placa}"></td>
+                <td th:text="${vehiculo.ciudadPlaca}"></td>
+                <td th:text="${vehiculo.capacidad}"></td>
+                <td th:text="${vehiculo.nivel}"></td>
+                <td th:text="${vehiculo.conductor.idUsuario}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

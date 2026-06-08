@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Disponibilidades vehículo</title>
+</head>
+<body>
+<h1>Disponibilidades para vehículo <span th:text="${placa}"></span></h1>
+<p><a th:href="@{/mongo/disponibilidades/vehiculos}">Volver</a></p>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Día</th>
+        <th>Hora Inicio</th>
+        <th>Hora Fin</th>
+        <th>TipoServicio</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="d : ${disponibilidades}">
+        <td th:text="${d.id}"></td>
+        <td th:text="${d.diaSemana}"></td>
+        <td th:text="${d.horaInicio}"></td>
+        <td th:text="${d.horaFin}"></td>
+        <td th:text="${d.tipoServicio}"></td>
+        <td><a th:href="@{'/mongo/disponibilidades/' + ${d.id} + '/edit'}">Editar</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

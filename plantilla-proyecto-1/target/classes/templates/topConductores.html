@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Top 20 Conductores - Servicios prestados</title>
+</head>
+<body>
+    <h1>Top 20 conductores por número de servicios prestados</h1>
+    <p th:if="${includingZeros}"><em>Mostrando conductores con 0 servicios incluidos</em></p>
+
+    <p>
+        <a th:href="@{/mongo/viajes}">Volver a Viajes</a> |
+        <a th:href="@{/mongo/viajes/top-conductores/incluir-ceros}">Incluir conductores con 0 servicios</a>
+    </p>
+
+    <div th:if="${error}">
+        <p style="color:red;" th:text="${error}"></p>
+    </div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Posición</th>
+                <th>Conductor (nombre)</th>
+                <th>ConductorId</th>
+                <th>Teléfono</th>
+                <th>Número de servicios</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="c : ${topConductores}">
+                <td th:text="${c.rank}"></td>
+                <td th:text="${c.nombre}"></td>
+                <td th:text="${c.conductorId}"></td>
+                <td th:text="${c.telefono}"></td>
+                <td th:text="${c.serviciosCount}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

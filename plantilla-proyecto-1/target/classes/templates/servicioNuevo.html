@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nuevo Servicio</title>
+</head>
+<body>
+  <h1>Nuevo Servicio</h1>
+
+  <!-- Mensaje de error si existe -->
+  <div th:if="${error}" style="color: red;">
+    <p th:text="${error}"></p>
+  </div>
+
+  <!-- Formulario sencillo (los nombres de campo deben coincidir con los @RequestParam) -->
+  <form th:action="@{/servicios/new/save}" method="post">
+    <label>Tipo servicio</label>
+    <input type="text" name="tipoServicio" value="PASAJEROS"/><br/>
+
+    <label>idCliente</label>
+    <input type="number" name="idCliente"/><br/>
+
+    <label>idConductor</label>
+    <input type="number" name="idConductor"/><br/>
+
+    <label>idVehiculo</label>
+    <input type="number" name="idVehiculo"/><br/>
+
+    <label>idTarifa</label>
+    <input type="number" name="idTarifa"/><br/>
+
+    <label>duracionMinutos</label>
+    <input type="number" name="duracionMinutos"/><br/>
+
+    <label>horaInicio (yyyy-MM-dd HH:mm:ss)</label>
+    <input type="text" name="horaInicio"/><br/>
+
+    <label>horaFin (yyyy-MM-dd HH:mm:ss)</label>
+    <input type="text" name="horaFin"/><br/>
+
+    <label>nivelAplicado</label>
+    <input type="text" name="nivelAplicado"/><br/>
+
+    <label>tarifaKmAplicada</label>
+    <input type="number" step="0.01" name="tarifaKmAplicada"/><br/>
+
+    <label>porcentajeComision</label>
+    <input type="number" step="0.01" name="porcentajeComision"/><br/>
+
+    <button type="submit">Guardar</button>
+  </form>
+</body>
+</html>

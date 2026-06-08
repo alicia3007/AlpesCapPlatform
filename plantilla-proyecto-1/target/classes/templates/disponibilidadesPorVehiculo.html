@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Disponibilidades por Vehículo</title>
+</head>
+<body>
+<h1>Disponibilidades agrupadas por vehículo</h1>
+<p><a th:href="@{/mongo/disponibilidades}">Volver a todas las disponibilidades</a></p>
+
+<div th:if="${#lists.isEmpty(grupoPorVehiculo)}">
+    <p>No se encontraron disponibilidades.</p>
+</div>
+
+<div th:each="entry : ${grupoPorVehiculo.entrySet()}">
+    <h2>Vehículo: <span th:text="${entry.key}"></span></h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Día</th>
+            <th>Hora Inicio</th>
+            <th>Hora Fin</th>
+            <th>TipoServicio</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="d : ${entry.value}">
+            <td th:text="${d.id}"></td>
+            <td th:text="${d.diaSemana}"></td>
+            <td th:text="${d.horaInicio}"></td>
+            <td th:text="${d.horaFin}"></td>
+            <td th:text="${d.tipoServicio}"></td>
+            <td><a th:href="@{'/mongo/disponibilidades/' + ${d.id} + '/edit'}">Editar</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

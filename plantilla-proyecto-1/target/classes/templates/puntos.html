@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Puntos geográficos registrados</title>
+</head>
+<body>
+    <h1>Puntos geográficos registrados</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Latitud</th>
+                <th>Longitud</th>
+                <th>Ciudad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="punto : ${puntos}">
+                <td th:text="${punto.idPunto}"></td>
+                <td th:text="${punto.nombre}"></td>
+                <td th:text="${punto.direccion}"></td>
+                <td th:text="${punto.latitud}"></td>
+                <td th:text="${punto.longitud}"></td>
+                <td th:text="${punto.ciudad.nombre}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

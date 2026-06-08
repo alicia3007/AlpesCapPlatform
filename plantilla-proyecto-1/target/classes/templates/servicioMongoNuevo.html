@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Solicitar Servicio (Mongo)</title>
+</head>
+<body>
+<h1>Solicitar Servicio</h1>
+<div th:if="${error}" style="color: red;">[[${error}]]</div>
+
+<form th:action="@{/mongo/servicios/new/save}" method="post" th:object="${servicio}">
+    <label>Cliente:
+        <select th:field="*{clienteId}" required>
+            <option th:each="c : ${clientes}" th:value="${c.id}" th:text="${c.nombre + ' (' + c.cedula + ')'}"></option>
+        </select>
+    </label><br/>
+
+    <h3>Origen</h3>
+    <label>Dirección: <input type="text" th:field="*{origenAddress}" required/></label><br/>
+    <label>Latitud: <input type="number" step="any" th:field="*{origenLat}" required/></label><br/>
+    <label>Longitud: <input type="number" step="any" th:field="*{origenLng}" required/></label><br/>
+
+    <h3>Destino</h3>
+    <label>Dirección: <input type="text" th:field="*{destinoAddress}" required/></label><br/>
+    <label>Latitud: <input type="number" step="any" th:field="*{destinoLat}" required/></label><br/>
+    <label>Longitud: <input type="number" step="any" th:field="*{destinoLng}" required/></label><br/>
+
+    <button type="submit">Solicitar servicio</button>
+</form>
+
+<p><a th:href="@{/mongo/servicios}">Ver solicitudes</a></p>
+</body>
+</html>

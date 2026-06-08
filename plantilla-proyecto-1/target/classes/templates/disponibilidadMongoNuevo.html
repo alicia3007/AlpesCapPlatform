@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Registrar Disponibilidad (MongoDB)</title>
+</head>
+<body>
+<h1>Registrar Disponibilidad</h1>
+
+<div th:if="${error}" style="color: red;">[[${error}]]</div>
+
+<form th:action="@{/mongo/disponibilidades/new/save}" method="post" th:object="${disponibilidad}">
+    <label>Conductor:
+        <select th:field="*{conductorId}" id="conductorSelect" required>
+            <option th:each="c : ${conductores}" th:value="${c.id}" th:text="${c.nombre + ' (' + c.cedula + ')'}"></option>
+        </select>
+    </label><br/>
+
+    <label>Vehículo:
+        <select th:field="*{vehiculoPlaca}" id="vehiculoSelect" required>
+            <!-- options se llenan por JS al cambiar conductor -->
+        </select>
+    </label><br/>
+
+    <label>Día de la semana:
+        <select th:field="*{diaSemana}" required>
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miércoles">Miércoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes">Viernes</option>
+            <option value="Sábado">Sábado</option>
+            <option value="Domingo">Domingo</option>
+        </select>
+    </label><br/>
+
+    <label>Hora inicio: <input type="time" th:field="*{horaInicio}" required/></label><br/>
+    <label>Hora fin: <input type="time" th:field="*{horaFin}" required/></label><br/>
+
+    <label>Tipo de servicio:
+        <select th:field="*{tipoServicio}" id="tipoServicio">
+            <option value="Pasajeros">Pasajeros</option>
+            <option value="Mercancías">Mercancías</option>
+            <option value="Comida">Comida</option>
+        </select>
+    </label><br/>
+
+    <button type="submit">Registrar disponibilidad</button>
+</form>
+
+<p><a th:href="@{/mongo/disponibilidades}">Ver disponibilidades</a></p>
+<p><a th:href="@{/mongo/conductores}">Ver conductores (Mongo)</a></p>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+    // Preload a JSON map of conductorId -> vehiculos
+    var conductores = /*[[${conductores}]]*/ [];
+    function populateVehiculos(){
+        var sel = document.getElementById('conductorSelect');
+        var plateSel = document.getElementById('vehiculoSelect');
+        var cid = sel.value;
+        plateSel.innerHTML = '';
+        for(var i=0;i<conductores.length;i++){
+            if(conductores[i].id == cid){
+                var v = conductores[i].vehiculos || [];
+                for(var j=0;j<v.length;j++){
+                    var opt = document.createElement('option');
+                    opt.value = v[j].placa;
+                    opt.text = v[j].placa + ' - ' + (v[j].marca || '') + ' (' + (v[j].modelo||'') + ')';
+                    plateSel.appendChild(opt);
+                }
+            }
+        }
+    }
+    document.getElementById('conductorSelect').addEventListener('change', populateVehiculos);
+    // inicializar
+    if(document.getElementById('conductorSelect').options.length>0) populateVehiculos();
+/*]]>*/
+</script>
+</body>
+</html>
