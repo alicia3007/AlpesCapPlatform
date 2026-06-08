@@ -1,0 +1,33 @@
+{
+	"info": {
+		"_postman_id": "824ea87f-2c77-4a90-ab95-3ca9ccbbbf4b",
+		"name": "RFC1 Transaccional Serializable",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426",
+		"_collection_link": "https://solar-satellite-668714.postman.co/workspace/My-Workspace~0f3d6b04-f767-431f-8b8b-47b684b80780/collection/41343426-824ea87f-2c77-4a90-ab95-3ca9ccbbbf4b?action=share&source=collection_link&creator=41343426"
+	},
+	"item": [
+		{
+			"name": "Consultar histórico serializable",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/101/historial-servicios/serializable",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"101",
+						"historial-servicios",
+						"serializable"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

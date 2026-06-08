@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "cdb2ef37-84fa-422d-b480-29e0ad459e3e",
+		"name": "RF3 Transaccional",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426",
+		"_collection_link": "https://solar-satellite-668714.postman.co/workspace/My-Workspace~0f3d6b04-f767-431f-8b8b-47b684b80780/collection/41343426-cdb2ef37-84fa-422d-b480-29e0ad459e3e?action=share&source=collection_link&creator=41343426"
+	},
+	"item": [
+		{
+			"name": "Registrar conductor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/conductores?nombre=Carlos Rodríguez&cedula=5001234567&correo=carlos.rodriguez@conductor.com&celular=3105001234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"conductores"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Carlos Rodríguez"
+						},
+						{
+							"key": "cedula",
+							"value": "5001234567"
+						},
+						{
+							"key": "correo",
+							"value": "carlos.rodriguez@conductor.com"
+						},
+						{
+							"key": "celular",
+							"value": "3105001234"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar conductor cédula duplicada",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/conductores?nombre=Pedro Sanchez&cedula=5001234567&correo=pedro.sanhez@conductor.com&celular=3109876543",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"conductores"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Pedro Sanchez"
+						},
+						{
+							"key": "cedula",
+							"value": "5001234567"
+						},
+						{
+							"key": "correo",
+							"value": "pedro.sanhez@conductor.com"
+						},
+						{
+							"key": "celular",
+							"value": "3109876543"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar cliente ya conductor",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clientes?nombre=Carlos Rodríguez&cedula=5001234567&correo=carlos.rodriguez@conductor.com&celular=3105001234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Carlos Rodríguez"
+						},
+						{
+							"key": "cedula",
+							"value": "5001234567"
+						},
+						{
+							"key": "correo",
+							"value": "carlos.rodriguez@conductor.com"
+						},
+						{
+							"key": "celular",
+							"value": "3105001234"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

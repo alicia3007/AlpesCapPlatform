@@ -1,0 +1,108 @@
+db.disponibilidades.insertMany([
+|   {
+|     "conductorId": ObjectId("692c8afbc986debeebbeaa11"),
+|     "diaSemana": "Lunes",
+|     "horaInicio": "08:00",
+|     "horaFin": "12:00",
+|     "tipoServicio": "Pasajeros - Estándar"
+|   },
+|   {
+|     "conductorId": ObjectId("692c8afbc986debeebbeaa11"),
+|     "diaSemana": "Lunes",
+|     "horaInicio": "14:00",
+|     "horaFin": "18:00",
+|     "tipoServicio": "Comida"
+|   },
+| 
+|   {
+|     "conductorId": ObjectId("692c8b61c986debeebbeaa26"),
+|     "diaSemana": "Martes",
+|     "horaInicio": "07:00",
+|     "horaFin": "11:00",
+|     "tipoServicio": "Pasajeros - Confort"
+|   },
+|   {
+|     "conductorId": ObjectId("692c8b61c986debeebbeaa26"),
+|     "diaSemana": "Martes",
+|     "horaInicio": "13:00",
+|     "horaFin": "17:00",
+|     "tipoServicio": "Mercancías"
+|   },
+| 
+|   {
+|     "conductorId": ObjectId("692c8b61c986debeebbeaa27"),
+|     "diaSemana": "Miércoles",
+|     "horaInicio": "09:00",
+|     "horaFin": "12:00",
+|     "tipoServicio": "Comida"
+|   },
+|   {
+|     "conductorId": ObjectId("692c8b61c986debeebbeaa27"),
+|     "diaSemana": "Miércoles",
+|     "horaInicio": "13:00",
+|     "horaFin": "17:00",
+|     "tipoServicio": "Pasajeros - Estándar"
+|   },
+| 
+|   {
+|     "conductorId": ObjectId("692c8b61c986debeebbeaa28"),
+|     "diaSemana": "Jueves",
+|     "horaInicio": "08:00",
+|     "horaFin": "10:00",
+|     "tipoServicio": "Mercancías"
+|   },
+|   {
+|     "conductorId": ObjectId("692c8b61c986debeebbeaa28"),
+|     "diaSemana": "Jueves",
+|     "horaInicio": "11:00",
+|     "horaFin": "15:00",
+|     "tipoServicio": "Pasajeros - Large"
+|   },
+| 
+|   {
+|     "conductorId": ObjectId("692c8b61c986debeebbeaa29"),
+|     "diaSemana": "Viernes",
+|     "horaInicio": "07:00",
+|     "horaFin": "12:00",
+|     "tipoServicio": "Comida"
+|   },
+| 
+|   {
+|     "conductorId": ObjectId("692c8b61c986debeebbeaa2a"),
+|     "diaSemana": "Viernes",
+|     "horaInicio": "14:00",
+|     "horaFin": "18:00",
+|     "tipoServicio": "Pasajeros - Estándar"
+|   },
+| 
+|   {
+|     "conductorId": ObjectId("692c8b61c986debeebbeaa2b"),
+|     "diaSemana": "Sábado",
+|     "horaInicio": "09:00",
+|     "horaFin": "13:00",
+|     "tipoServicio": "Mercancías"
+|   },
+|   {
+|     "conductorId": ObjectId("692c8b61c986debeebbeaa2b"),
+|     "diaSemana": "Sábado",
+|     "horaInicio": "14:00",
+|     "horaFin": "17:00",
+|     "tipoServicio": "Comida"
+|   },
+| 
+|   {
+|     "conductorId": ObjectId("692c8b61c986debeebbeaa2c"),
+|     "diaSemana": "Domingo",
+|     "horaInicio": "08:00",
+|     "horaFin": "12:00",
+|     "tipoServicio": "Pasajeros - Confort"
+|   },
+| 
+|   {
+|     "conductorId": ObjectId("692c8b61c986debeebbeaa2d"),
+|     "diaSemana": "Domingo",
+|     "horaInicio": "13:00",
+|     "horaFin": "18:00",
+|     "tipoServicio": "Mercancías"
+|   }
+| ])

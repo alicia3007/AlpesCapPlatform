@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "5c5a84a8-9f3f-4565-b718-8f1a888de0a6",
+		"name": "RF6 Transaccional",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426",
+		"_collection_link": "https://solar-satellite-668714.postman.co/workspace/My-Workspace~0f3d6b04-f767-431f-8b8b-47b684b80780/collection/41343426-5c5a84a8-9f3f-4565-b718-8f1a888de0a6?action=share&source=collection_link&creator=41343426"
+	},
+	"item": [
+		{
+			"name": "Registrar disponibilidad",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/disponibilidades?idConductor=1&idVehiculo=1&tipoServicio=PASAJEROS&diaInicio=2025-11-06&diaFin=2025-11-08&horaInicio=08:00&horaFin=18:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"disponibilidades"
+					],
+					"query": [
+						{
+							"key": "idConductor",
+							"value": "1"
+						},
+						{
+							"key": "idVehiculo",
+							"value": "1"
+						},
+						{
+							"key": "tipoServicio",
+							"value": "PASAJEROS"
+						},
+						{
+							"key": "diaInicio",
+							"value": "2025-11-06"
+						},
+						{
+							"key": "diaFin",
+							"value": "2025-11-08"
+						},
+						{
+							"key": "horaInicio",
+							"value": "08:00"
+						},
+						{
+							"key": "horaFin",
+							"value": "18:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar disponibilidades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/disponibilidades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"disponibilidades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Disponibilidad overlaped",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/disponibilidades/2?diaInicio=2025-11-10&diaFin=2025-11-12&horaInicio=10:00&horaFin=20:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"disponibilidades",
+						"2"
+					],
+					"query": [
+						{
+							"key": "diaInicio",
+							"value": "2025-11-10"
+						},
+						{
+							"key": "diaFin",
+							"value": "2025-11-12"
+						},
+						{
+							"key": "horaInicio",
+							"value": "10:00"
+						},
+						{
+							"key": "horaFin",
+							"value": "20:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar disponibilidad correctamente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/disponibilidades/2?diaInicio=2025-12-10&diaFin=2025-12-12&horaInicio=3:00&horaFin=5:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"disponibilidades",
+						"2"
+					],
+					"query": [
+						{
+							"key": "diaInicio",
+							"value": "2025-12-10"
+						},
+						{
+							"key": "diaFin",
+							"value": "2025-12-12"
+						},
+						{
+							"key": "horaInicio",
+							"value": "3:00"
+						},
+						{
+							"key": "horaFin",
+							"value": "5:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar disponibilidades Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/disponibilidades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"disponibilidades"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

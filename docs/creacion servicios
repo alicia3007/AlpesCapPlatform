@@ -1,0 +1,194 @@
+db.createCollection("servicios", {
+|   validator: {
+|     $jsonSchema: {
+|       bsonType: "object",
+|       required: [
+|         "tipoServicio",
+|         "clienteId",
+|         "conductorId",
+|         "vehiculoPlaca",
+|         "tarifaId",
+|         "puntoPartida",
+|         "puntosLlegada",
+|         "kilometros",
+|         "duracion",
+|         "horaInicio",
+|         "comision",
+|         "costoTotal",
+|         "estado"
+|       ],
+|       properties: {
+|         tipoServicio: {
+|           bsonType: "string",
+|           enum: ["TrayectoPasajeros", "Domicilio", "TransporteMercancias"],
+|           description: "Tipo de servicio (discriminador para especialización)" 
+|         },
+|         clienteId: {
+|           bsonType: "objectId",
+|           description: "ID del cliente (REFERENCIADO - relación N:1)"
+|         },
+|         conductorId: {
+|           bsonType: "objectId",
+|           description: "ID del conductor (REFERENCIADO - relación N:1)"
+|         },
+|         vehiculoPlaca: {
+|           bsonType: "string",
+|           description: "Placa del vehículo usado (REFERENCIADO por placa)"
+|         },
+|         tarifaId: {
+|           bsonType: "objectId",
+|           description: "ID de la tarifa aplicada (REFERENCIADO - relación N:1)"
+|         },
+|         restauranteId: {
+|           bsonType: "objectId",
+|           description: "ID del restaurante (solo para Domicilio) (REFERENCIADO - relación N:1)"
+|         },
+|         puntoPartida: {
+|           bsonType: "object",
+|           required: ["nombre", "direccion", "ciudad", "coordenadas"],
+|           description: "Punto de partida del servicio (EMBEBIDO)",
+|           properties: {
+|             nombre: {
+|               bsonType: "string",
+|               description: "Nombre del punto"
+|             },
+|             direccion: {
+|               bsonType: "string",
+|               description: "Dirección del punto"
+|             },
+|             ciudad: {
+|               bsonType: "string",
+|               description: "Ciudad del punto (EMBEBIDO solo nombre)"
+|             },
+|             coordenadas: {
+|               bsonType: "object",
+|               required: ["latitud", "longitud"],
+|               properties: {
+|                 latitud: {
+|                   bsonType: "double",
+|                   description: "Latitud"
+|                 },
+|                 longitud: {
+|                   bsonType: "double",
+|                   description: "Longitud"
+|                 }
+|               }
+|             }
+|           }
+|         },
+|         puntosLlegada: {
+|           bsonType: "array",
+|           minItems: 1,
+|           description: "Puntos de llegada del servicio (EMBEBIDO - 1:N)",
+|           items: {
+|             bsonType: "object",
+|             required: ["nombre", "direccion", "ciudad", "coordenadas"],
+|             properties: {
+|               nombre: {
+|                 bsonType: "string",
+|                 description: "Nombre del punto"
+|               },
+|               direccion: {
+|                 bsonType: "string",
+|                 description: "Dirección del punto"
+|               },
+|               ciudad: {
+|                 bsonType: "string",
+|                 description: "Ciudad del punto (EMBEBIDO solo nombre)"
+|               },
+|               coordenadas: {
+|                 bsonType: "object",
+|                 required: ["latitud", "longitud"],
+|                 properties: {
+|                   latitud: {
+|                     bsonType: "double",
+|                     description: "Latitud"
+|                   },
+|                   longitud: {
+|                     bsonType: "double",
+|                     description: "Longitud"
+|                   }
+|                 }
+|               }
+|             }
+|           }
+|         },
+|         kilometros: {
+|           bsonType: "double",
+|           minimum: 0,
+|           description: "Kilómetros recorridos"
+|         },
+|         duracion: {
+|           bsonType: "int",
+|           minimum: 0,
+|           description: "Duración en minutos"
+|         },
+|         horaInicio: {
+|           bsonType: "date",
+|           description: "Hora de inicio del servicio"
+|         },
+|         horaFinalizacion: {
+|           bsonType: "date",
+|           description: "Hora de finalización del servicio"
+|         },
+|         comision: {
+|           bsonType: "double",
+|           minimum: 0,
+|           description: "Comisión del conductor"
+|         },
+|         costoTotal: {
+|           bsonType: "double",
+|           minimum: 0,
+|           description: "Costo total del servicio"
+|         },
+|         estado: {
+|           bsonType: "string",
+|           enum: ["pendiente", "en_curso", "completado", "cancelado"],
+|           description: "Estado del servicio"
+|         },
+|         // Campos específicos de TrayectoPasajeros
+|         cantidadPasajeros: {
+|           bsonType: "int",
+|           minimum: 1,
+|           description: "Cantidad de pasajeros (solo TrayectoPasajeros)"
+|         },
+|         // Campos específicos de Domicilio
+|         valor: {
+|           bsonType: "double",
+|           minimum: 0,
+|           description: "Valor del pedido (solo Domicilio)"
+|         },
+|         cantidadProductos: {
+|           bsonType: "int",
+|           minimum: 1,
+|           description: "Cantidad de productos (solo Domicilio)"
+|         },
+|         // Campos específicos de TransporteMercancias
+|         cantidadObjetos: {
+|           bsonType: "int",
+|           minimum: 1,
+|           description: "Cantidad de objetos (solo TransporteMercancias)"
+|         },
+|         mercancias: {
+|           bsonType: "array",
+|           description: "Mercancías transportadas (EMBEBIDO - 1:N, solo TransporteMercancias)",
+|           items: {
+|             bsonType: "object",
+|             required: ["nombre", "valor"],
+|             properties: {
+|               nombre: {
+|                 bsonType: "string",
+|                 description: "Nombre de la mercancía"
+|               },
+|               valor: {
+|                 bsonType: "double",
+|                 minimum: 0,
+|                 description: "Valor de la mercancía"
+|               }
+|             }
+|           }
+|         }
+|       }
+|     }
+|   }
+| });

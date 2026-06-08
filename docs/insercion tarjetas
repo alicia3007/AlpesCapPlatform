@@ -1,0 +1,67 @@
+db.tarjetas.insertMany([
+|   // === Cliente 1: Juan Perez ===
+|   {
+|     numeroTarjeta: "4111111111111111",
+|     titular: "Juan Perez",
+|     fechaExpiracion: "2028-07",
+|     cvv: "123",
+|     banco: "Bancolombia",
+|     tipo: "Visa",
+|     clienteId: ObjectId("66fa00000000000000000101"),
+|     estado: "activa"
+|   },
+|   {
+|     numeroTarjeta: "5500000000000004",
+|     titular: "Juan Perez",
+|     fechaExpiracion: "2027-11",
+|     cvv: "456",
+|     banco: "Davivienda",
+|     tipo: "Mastercard",
+|     clienteId: ObjectId("66fa00000000000000000101"),
+|     estado: "activa"
+|   },
+| 
+|   // === Cliente 2: Maria Gomez ===
+|   {
+|     numeroTarjeta: "4111111111111129",
+|     titular: "Maria Gomez",
+|     fechaExpiracion: "2029-03",
+|     cvv: "321",
+|     banco: "Banco de Bogotá",
+|     tipo: "Visa",
+|     clienteId: ObjectId("66fa00000000000000000102"),
+|     estado: "activa"
+|   },
+|   {
+|     numeroTarjeta: "5500000000000012",
+|     titular: "Maria Gomez",
+|     fechaExpiracion: "2026-10",
+|     cvv: "654",
+|     banco: "BBVA",
+|     tipo: "Mastercard",
+|     clienteId: ObjectId("66fa00000000000000000102"),
+|     estado: "activa"
+|   },
+| 
+|   // === Cliente 3: Carlos Rodriguez ===
+|   {
+|     numeroTarjeta: "4111111111111137",
+|     titular: "Carlos Rodriguez",
+|     fechaExpiracion: "2028-01",
+|     cvv: "777",
+|     banco: "Nequi",
+|     tipo: "Visa",
+|     clienteId: ObjectId("66fa00000000000000000103"),
+|     estado: "activa"
+|   },
+|   {
+|     numeroTarjeta: "5500000000000020",
+|     titular: "Carlos Rodriguez",
+|     fechaExpiracion: "2027-12",
+|     cvv: "888",
+|     banco: "Banco Popular",
+|     tipo: "Mastercard",
+|     clienteId: ObjectId("66fa00000000000000000103"),
+|     estado: "activa"
+|   }
+| ]);

@@ -1,0 +1,81 @@
+db.viajes.insertMany([
+|   {
+|     pasajeroId: ObjectId("66fa00000000000000000102"),
+|     conductorId: ObjectId("692c8b61c986debeebbeaa26"),
+|     servicioId: ObjectId("692c8e5fc986debeebbeaa69"),
+|     tipoServicio: "Pasajeros - Confort",
+|     vehiculo: {
+|       placa: "XYZ987",
+|       modelo: "Mazda 3",
+|       nivel: "Confort"
+|     },
+|     horaInicio: ISODate("2025-02-02T09:10:00Z"),
+|     horaFin: ISODate("2025-02-02T09:40:00Z"),
+|     distanciaKm: NumberDecimal("12.5"),
+|     costoTotal: NumberDecimal("32000")
+|   },
+| 
+|   {
+|     pasajeroId: ObjectId("66fa00000000000000000103"),
+|     conductorId: ObjectId("692c8b61c986debeebbeaa27"),
+|     servicioId: ObjectId("692c8e5fc986debeebbeaa6a"),
+|     tipoServicio: "Pasajeros - Estándar",
+|     vehiculo: {
+|       placa: "MNO452",
+|       modelo: "Chevrolet Spark",
+|       nivel: "Estándar"
+|     },
+|     horaInicio: ISODate("2025-02-03T14:05:00Z"),
+|     horaFin: ISODate("2025-02-03T14:22:00Z"),
+|     distanciaKm: NumberDecimal("5.8"),
+|     costoTotal: NumberDecimal("14500")
+|   },
+| 
+|   {
+|     pasajeroId: ObjectId("692c9b7618000f4a6d29a317"),
+|     conductorId: ObjectId("692c8b61c986debeebbeaa28"),
+|     servicioId: ObjectId("692c8f12bf4fa0428267454e"),
+|     tipoServicio: "Mercancías",
+|     vehiculo: {
+|       placa: "CDE741",
+|       modelo: "Kia Frontier",
+|       nivel: "Large"
+|     },
+|     horaInicio: ISODate("2025-02-04T07:30:00Z"),
+|     horaFin: ISODate("2025-02-04T08:45:00Z"),
+|     distanciaKm: NumberDecimal("18.3"),
+|     costoTotal: NumberDecimal("54000")
+|   },
+| 
+|   {
+|     pasajeroId: ObjectId("66fa00000000000000000101"),
+|     conductorId: ObjectId("692c8b61c986debeebbeaa29"),
+|     servicioId: ObjectId("692c8f12bf4fa0428267454f"),
+|     tipoServicio: "Comida",
+|     vehiculo: {
+|       placa: "FGH321",
+|       modelo: "Renault Logan",
+|       nivel: "Estándar"
+|     },
+|     horaInicio: ISODate("2025-02-05T12:10:00Z"),
+|     horaFin: ISODate("2025-02-05T12:28:00Z"),
+|     distanciaKm: NumberDecimal("4.4"),
+|     costoTotal: NumberDecimal("9000")
+|   },
+| 
+|   {
+|     pasajeroId: ObjectId("66fa00000000000000000102"),
+|     conductorId: ObjectId("692c8b61c986debeebbeaa2a"),
+|     servicioId: ObjectId("692c8f12bf4fa04282674550"),
+|     tipoServicio: "Pasajeros - Large",
+|     vehiculo: {
+|       placa: "JKL159",
+|       modelo: "Toyota Hiace",
+|       nivel: "Large"
+|     },
+|     horaInicio: ISODate("2025-02-06T16:45:00Z"),
+|     horaFin: ISODate("2025-02-06T17:30:00Z"),
+|     distanciaKm: NumberDecimal("14.9"),
+|     costoTotal: NumberDecimal("38000")
+|   }
+| ])

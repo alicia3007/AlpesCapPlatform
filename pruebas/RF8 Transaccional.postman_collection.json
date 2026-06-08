@@ -1,0 +1,533 @@
+{
+	"info": {
+		"_postman_id": "86254645-5d48-45b9-b1b0-88251e53a4ba",
+		"name": "RF8 Transaccional",
+		"description": "Colección de pruebas para RF8 - Solicitar un servicio por parte de un usuario.\n\nEscenarios de prueba:\n1. Solicitud exitosa de servicio de PASAJEROS\n2. Solicitud exitosa de servicio de DOMICILIO\n3. Solicitud exitosa de servicio de MERCANCIAS\n4. Fallo: Cliente sin medio de pago registrado\n5. Fallo: No hay conductores disponibles\n6. Fallo: Datos incompletos en la solicitud\n7. Fallo: Tipo de servicio inválido\n8. Finalizar servicio exitosamente\n9. Fallo: Intentar finalizar servicio inexistente\n10. Verificar concurrencia - múltiples solicitudes simultáneas\n\nNOTA: Los endpoints usan /api/rf8/ para evitar conflictos con otros controladores",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426",
+		"_collection_link": "https://solar-satellite-668714.postman.co/workspace/My-Workspace~0f3d6b04-f767-431f-8b8b-47b684b80780/collection/41343426-86254645-5d48-45b9-b1b0-88251e53a4ba?action=share&source=collection_link&creator=41343426"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/rf8/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"rf8",
+						"health"
+					]
+				},
+				"description": "Verificar que el servicio está activo"
+			},
+			"response": []
+		},
+		{
+			"name": "Solicitud exitosa - Servicio PASAJEROS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Response has success flag\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.success).to.be.true;",
+							"});",
+							"",
+							"pm.test(\"Response contains service ID\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.idServicio).to.exist;",
+							"    pm.environment.set(\"lastServiceId\", jsonData.idServicio);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idCliente\": 101,\n    \"idPuntoPartida\": 1,\n    \"idPuntoLlegada\": 2,\n    \"tipoServicio\": \"PASAJEROS\",\n    \"nivelServicio\": \"ESTANDAR\",\n    \"cantidadPasajeros\": 2\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/rf8/solicitar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"rf8",
+						"solicitar"
+					]
+				},
+				"description": "Solicitar un servicio de PASAJEROS con todos los datos correctos. Debe crear el servicio exitosamente."
+			},
+			"response": []
+		},
+		{
+			"name": "Solicitud exitosa - Servicio DOMICILIO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Response has success flag\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.success).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idCliente\": 101,\n    \"idPuntoPartida\": 3,\n    \"idPuntoLlegada\": 4,\n    \"tipoServicio\": \"DOMICILIO\",\n    \"nivelServicio\": \"ESTANDAR\",\n    \"idRestaurante\": 1,\n    \"valorOrden\": 25000.0,\n    \"cantidadProductos\": 3\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/rf8/solicitar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"rf8",
+						"solicitar"
+					]
+				},
+				"description": "Solicitar un servicio de DOMICILIO con todos los datos correctos incluyendo restaurante."
+			},
+			"response": []
+		},
+		{
+			"name": "Solicitud exitosa - Servicio MERCANCIAS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Response has success flag\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.success).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idCliente\": 101,\n    \"idPuntoPartida\": 5,\n    \"idPuntoLlegada\": 6,\n    \"tipoServicio\": \"MERCANCIAS\",\n    \"nivelServicio\": \"LARGE\",\n    \"cantidadObjetos\": 10\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/rf8/solicitar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"rf8",
+						"solicitar"
+					]
+				},
+				"description": "Solicitar un servicio de MERCANCIAS con nivel LARGE."
+			},
+			"response": []
+		},
+		{
+			"name": "Fallo - Cliente sin medio de pago",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 402 (Payment Required)\", function () {",
+							"    pm.response.to.have.status(402);",
+							"});",
+							"",
+							"pm.test(\"Response has error message about payment method\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.include(\"medio de pago\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idCliente\": 999,\n    \"idPuntoPartida\": 1,\n    \"idPuntoLlegada\": 2,\n    \"tipoServicio\": \"PASAJEROS\",\n    \"nivelServicio\": \"ESTANDAR\",\n    \"cantidadPasajeros\": 1\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/rf8/solicitar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"rf8",
+						"solicitar"
+					]
+				},
+				"description": "Intentar solicitar servicio con un cliente que no tiene medio de pago registrado. Debe fallar con error 402."
+			},
+			"response": []
+		},
+		{
+			"name": "Fallo - Tipo de servicio inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400 (Bad Request)\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response has error message\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.exist;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idCliente\": 1,\n    \"idPuntoPartida\": 1,\n    \"idPuntoLlegada\": 2,\n    \"tipoServicio\": \"INVALIDO\",\n    \"nivelServicio\": \"ESTANDAR\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/rf8/solicitar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"rf8",
+						"solicitar"
+					]
+				},
+				"description": "Intentar solicitar servicio con tipo de servicio inválido. Debe fallar con error 400."
+			},
+			"response": []
+		},
+		{
+			"name": "Fallo - Datos incompletos (sin cliente)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400 (Bad Request)\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response mentions missing client ID\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.include(\"cliente\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idPuntoPartida\": 1,\n    \"idPuntoLlegada\": 2,\n    \"tipoServicio\": \"PASAJEROS\",\n    \"nivelServicio\": \"ESTANDAR\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/rf8/solicitar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"rf8",
+						"solicitar"
+					]
+				},
+				"description": "Intentar solicitar servicio sin especificar cliente. Debe fallar con error 400."
+			},
+			"response": []
+		},
+		{
+			"name": "Fallo - Domicilio sin restaurante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400 (Bad Request)\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response mentions restaurant requirement\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.include(\"restaurante\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idCliente\": 1,\n    \"idPuntoPartida\": 1,\n    \"idPuntoLlegada\": 2,\n    \"tipoServicio\": \"DOMICILIO\",\n    \"nivelServicio\": \"ESTANDAR\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/rf8/solicitar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"rf8",
+						"solicitar"
+					]
+				},
+				"description": "Intentar solicitar servicio de DOMICILIO sin especificar restaurante. Debe fallar con error 400."
+			},
+			"response": []
+		},
+		{
+			"name": "Finalizar servicio exitosamente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has success flag\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.success).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/rf8/{{lastServiceId}}/finalizar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"rf8",
+						"{{lastServiceId}}",
+						"finalizar"
+					]
+				},
+				"description": "Finalizar el servicio creado en la primera prueba. Debe actualizar la hora de fin y liberar al conductor."
+			},
+			"response": []
+		},
+		{
+			"name": "Fallo - Finalizar servicio inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404 (Not Found)\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Response has error message\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.include(\"no existe\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/rf8/99999/finalizar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"rf8",
+						"99999",
+						"finalizar"
+					]
+				},
+				"description": "Intentar finalizar un servicio que no existe. Debe fallar con error 404."
+			},
+			"response": []
+		},
+		{
+			"name": "Concurrencia - Solicitud simultánea 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idCliente\": 101,\n    \"idPuntoPartida\": 7,\n    \"idPuntoLlegada\": 8,\n    \"tipoServicio\": \"PASAJEROS\",\n    \"nivelServicio\": \"CONFORT\",\n    \"cantidadPasajeros\": 3\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/rf8/solicitar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"rf8",
+						"solicitar"
+					]
+				},
+				"description": "Primera solicitud para prueba de concurrencia. Ejecutar junto con la siguiente."
+			},
+			"response": []
+		},
+		{
+			"name": "Concurrencia - Solicitud simultánea 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idCliente\": 101,\n    \"idPuntoPartida\": 9,\n    \"idPuntoLlegada\": 10,\n    \"tipoServicio\": \"PASAJEROS\",\n    \"nivelServicio\": \"CONFORT\",\n    \"cantidadPasajeros\": 2\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/rf8/solicitar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"rf8",
+						"solicitar"
+					]
+				},
+				"description": "Segunda solicitud para prueba de concurrencia. Ejecutar junto con la anterior para verificar que no se asigna el mismo conductor."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "lastServiceId",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

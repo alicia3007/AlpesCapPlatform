@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "ab48d66a-d4bb-4605-9b67-bef26cee81e3",
+		"name": "RF4 Transaccional",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426",
+		"_collection_link": "https://solar-satellite-668714.postman.co/workspace/My-Workspace~0f3d6b04-f767-431f-8b8b-47b684b80780/collection/41343426-ab48d66a-d4bb-4605-9b67-bef26cee81e3?action=share&source=collection_link&creator=41343426"
+	},
+	"item": [
+		{
+			"name": "Registrar vehiculo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/vehiculos?marca=Toyota&modelo=Corolla&placa=AGY124&capacidad=4&idConductor=1&tipo=CARRO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vehiculos"
+					],
+					"query": [
+						{
+							"key": "marca",
+							"value": "Toyota"
+						},
+						{
+							"key": "modelo",
+							"value": "Corolla"
+						},
+						{
+							"key": "placa",
+							"value": "AGY124"
+						},
+						{
+							"key": "capacidad",
+							"value": "4"
+						},
+						{
+							"key": "idConductor",
+							"value": "1"
+						},
+						{
+							"key": "tipo",
+							"value": "CARRO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar vehiculo placa duplicada",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/vehiculos?idConductor=1&placa=AGY124&marca=Toyota&modelo=Corolla&capacidad=4&tipo=CARRO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vehiculos"
+					],
+					"query": [
+						{
+							"key": "idConductor",
+							"value": "1"
+						},
+						{
+							"key": "placa",
+							"value": "AGY124"
+						},
+						{
+							"key": "marca",
+							"value": "Toyota"
+						},
+						{
+							"key": "modelo",
+							"value": "Corolla"
+						},
+						{
+							"key": "capacidad",
+							"value": "4"
+						},
+						{
+							"key": "tipo",
+							"value": "CARRO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar vehiculo conductor inexistente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/vehiculos?idConductor=99999&placa=XYZ789&marca=Mazda&modelo=CX5&capacidad=5&tipo=CAMIONETA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vehiculos"
+					],
+					"query": [
+						{
+							"key": "idConductor",
+							"value": "99999"
+						},
+						{
+							"key": "placa",
+							"value": "XYZ789"
+						},
+						{
+							"key": "marca",
+							"value": "Mazda"
+						},
+						{
+							"key": "modelo",
+							"value": "CX5"
+						},
+						{
+							"key": "capacidad",
+							"value": "5"
+						},
+						{
+							"key": "tipo",
+							"value": "CAMIONETA"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

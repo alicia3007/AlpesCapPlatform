@@ -1,0 +1,62 @@
+db.pagos.insertMany([
+|   {
+|     clienteId: ObjectId("66fa00000000000000000101"),
+|     tarjetaId: ObjectId("692c9149c986debeebbeaa6b"),
+|     servicioId: ObjectId("692c8e5fc986debeebbeaa68"),
+|     fecha: new Date(),
+|     monto: 15300.0,
+|     metodoPago: "tarjetaCredito",
+|     estado: "aprobado",
+|     numeroTransaccion: "TX-" + Math.floor(Math.random()*1000000)
+|   },
+|   {
+|     clienteId: ObjectId("66fa00000000000000000102"),
+|     tarjetaId: ObjectId("692c9149c986debeebbeaa6c"),
+|     servicioId: ObjectId("692c8e5fc986debeebbeaa69"),
+|     fecha: new Date(),
+|     monto: 4050.0,
+|     metodoPago: "tarjetaCredito",
+|     estado: "aprobado",
+|     numeroTransaccion: "TX-" + Math.floor(Math.random()*1000000)
+|   },
+|   {
+|     clienteId: ObjectId("66fa00000000000000000103"),
+|     tarjetaId: ObjectId("692c9149c986debeebbeaa6d"),
+|     servicioId: ObjectId("692c8e5fc986debeebbeaa6a"),
+|     fecha: new Date(),
+|     monto: 71500.0,
+|     metodoPago: "transferencia",
+|     estado: "pendiente",
+|     numeroTransaccion: "TX-" + Math.floor(Math.random()*1000000)
+|   },
+|   {
+|     clienteId: ObjectId("66fa00000000000000000101"),
+|     tarjetaId: ObjectId("692c9149c986debeebbeaa6e"),
+|     servicioId: ObjectId("692c8f12bf4fa0428267454e"),
+|     fecha: new Date(),
+|     monto: 18200.0,
+|     metodoPago: "tarjetaCredito",
+|     estado: "aprobado",
+|     numeroTransaccion: "TX-" + Math.floor(Math.random()*1000000)
+|   },
+|   {
+|     clienteId: ObjectId("66fa00000000000000000102"),
+|     tarjetaId: ObjectId("692c9149c986debeebbeaa6f"),
+|     servicioId: ObjectId("692c8e5fc986debeebbeaa69"),
+|     fecha: new Date(),
+|     monto: 35000.0,
+|     metodoPago: "efectivo",
+|     estado: "rechazado",
+|     numeroTransaccion: "TX-" + Math.floor(Math.random()*1000000)
+|   },
+|   {
+|     clienteId: ObjectId("66fa00000000000000000103"),
+|     tarjetaId: ObjectId("692c9149c986debeebbeaa70"),
+|     servicioId: ObjectId("692c8e5fc986debeebbeaa6a"),
+|     fecha: new Date(),
+|     monto: 120000.0,
+|     metodoPago: "tarjetaCredito",
+|     estado: "aprobado",
+|     numeroTransaccion: "TX-" + Math.floor(Math.random()*1000000)
+|   }
+| ]);

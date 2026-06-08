@@ -1,0 +1,153 @@
+db.createCollection("conductores", {
+|   validator: {
+|     $jsonSchema: {
+|       bsonType: "object",
+|       required: ["tipo", "nombre", "correo", "numero", "cedula", "totalComisiones", "vehiculos"],
+|       properties: {
+|         tipo: {
+|           bsonType: "string",
+|           enum: ["conductor"],
+|           description: "Debe ser 'conductor'"
+|         },
+|         nombre: {
+|           bsonType: "string",
+|           description: "Nombre del conductor"
+|         },
+|         correo: {
+|           bsonType: "string",
+|           pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+|           description: "Correo electrónico del conductor"
+|         },
+|         numero: {
+|           bsonType: "string",
+|           description: "Número de celular del conductor"
+|         },
+|         cedula: {
+|           bsonType: "string",
+|           description: "Cédula del conductor"
+|         },
+|         totalComisiones: {
+|           bsonType: "double",
+|           minimum: 0,
+|           description: "Total de comisiones acumuladas"
+|         },
+|         calificacionPromedio: {
+|           bsonType: "double",
+|           minimum: 0,
+|           maximum: 5,
+|           description: "Calificación promedio del conductor (0-5)"
+|         },
+|         totalRevisiones: {
+|           bsonType: "int",
+|           minimum: 0,
+|           description: "Total de revisiones recibidas"
+|         },
+|         revisionesRecibidas: {
+|           bsonType: "array",
+|           description: "Revisiones que el conductor ha recibido de clientes (EMBEBIDO)",
+|           items: {
+|             bsonType: "object",
+|             required: ["servicioId", "clienteId", "evaluacion", "fecha"],
+|             properties: {
+|               servicioId: {
+|                 bsonType: "objectId",
+|                 description: "ID del servicio asociado"
+|               },
+|               clienteId: {
+|                 bsonType: "objectId",
+|                 description: "ID del cliente que hizo la revisión"
+|               },
+|               evaluacion: {
+|                 bsonType: "int",
+|                 minimum: 0,
+|                 maximum: 5,
+|                 description: "Calificación de 0 a 5"
+|               },
+|               comentario: {
+|                 bsonType: "string",
+|                 description: "Comentario del cliente"
+|               },
+|               fecha: {
+|                 bsonType: "date",
+|                 description: "Fecha de la revisión"
+|               }
+|             }
+|           }
+|         },
+|         vehiculos: {
+|           bsonType: "array",
+|           minItems: 1,
+|           description: "Vehículos del conductor (EMBEBIDO - relación 1:N)",
+|           items: {
+|             bsonType: "object",
+|             required: ["tipo", "marca", "modelo", "color", "placa", "ciudadPlaca", "capacidad", "nivel", "actividades"],
+|             properties: {
+|               tipo: {
+|                 bsonType: "string",
+|                 enum: ["carro", "motocicleta"],
+|                 description: "Tipo de vehículo"
+|               },
+|               marca: {
+|                 bsonType: "string",
+|                 description: "Marca del vehículo"
+|               },
+|               modelo: {
+|                 bsonType: "string",
+|                 description: "Modelo del vehículo"
+|               },
+|               color: {
+|                 bsonType: "string",
+|                 description: "Color del vehículo"
+|               },
+|               placa: {
+|                 bsonType: "string",
+|                 description: "Placa del vehículo (identificador único)"
+|               },
+|               ciudadPlaca: {
+|                 bsonType: "string",
+|                 description: "Ciudad donde está registrada la placa"
+|               },
+|               capacidad: {
+|                 bsonType: "int",
+|                 minimum: 1,
+|                 description: "Capacidad de pasajeros/objetos"
+|               },
+|               nivel: {
+|                 bsonType: "string",
+|                 enum: ["Estándar", "Confort", "Premium"],
+|                 description: "Nivel del vehículo"
+|               },
+|               actividades: {
+|                 bsonType: "array",
+|                 description: "Disponibilidades del vehículo (EMBEBIDO - relación 1:N)",
+|                 items: {
+|                   bsonType: "object",
+|                   required: ["dia", "franjasHorarias"],
+|                   properties: {
+|                     dia: {
+|                       bsonType: "string",
+|                       enum: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+|                       description: "Día de la semana"
+|                     },
+|                     franjasHorarias: {
+|                       bsonType: "string",
+|                       description: "Franja horaria en formato HH:MM-HH:MM"
+|                     },
+|                     tipoServicio: {
+|                       bsonType: "array",
+|                       items: {
+|                         bsonType: "string",
+|                         enum: ["TrayectoPasajeros", "Domicilio", "TransporteMercancias"]
+|                       },
+|                       description: "Tipos de servicio disponibles en esta franja"
+|                     }
+|                   }
+|                 }
+|               }
+|             }
+|           }
+|         }
+|       }
+|     }
+|   }
+| });

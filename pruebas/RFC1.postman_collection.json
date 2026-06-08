@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "2777d215-9066-4147-afd7-1f5f37b828a7",
+		"name": "RFC1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426",
+		"_collection_link": "https://solar-satellite-668714.postman.co/workspace/My-Workspace~0f3d6b04-f767-431f-8b8b-47b684b80780/collection/41343426-2777d215-9066-4147-afd7-1f5f37b828a7?action=share&source=collection_link&creator=41343426"
+	},
+	"item": [
+		{
+			"name": "Consultar historial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/rfc1/usuarios/101/historial",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rfc1",
+						"usuarios",
+						"101",
+						"historial"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

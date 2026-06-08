@@ -1,0 +1,65 @@
+db.tarifas.insertMany([
+|   {
+|     tipoServicio: "TrayectoPasajeros",
+|     nivel: "Estándar",
+|     tarifaFija: 1800,
+|     costoTotal: 0,
+|     descripcion: "Tarifa básica para trayectos urbanos."
+|   },
+|   {
+|     tipoServicio: "TrayectoPasajeros",
+|     nivel: "Confort",
+|     tarifaFija: 2500,
+|     costoTotal: 0,
+|     descripcion: "Servicio con vehículos más amplios y cómodos."
+|   },
+|   {
+|     tipoServicio: "TrayectoPasajeros",
+|     nivel: "Large",
+|     tarifaFija: 3500,
+|     costoTotal: 0,
+|     descripcion: "Servicio de alta capacidad para grupos grandes."
+|   },
+|   {
+|     tipoServicio: "Domicilio",
+|     nivel: "Estándar",
+|     tarifaFija: 1500,
+|     costoTotal: 0,
+|     descripcion: "Tarifa estándar para entregas rápidas."
+|   },
+|   {
+|     tipoServicio: "Domicilio",
+|     nivel: "Confort",
+|     tarifaFija: 2200,
+|     costoTotal: 0,
+|     descripcion: "Entrega con prioridad y manejo especial."
+|   },
+|   {
+|     tipoServicio: "Domicilio",
+|     nivel: "Large",
+|     tarifaFija: 3000,
+|     costoTotal: 0,
+|     descripcion: "Entrega de paquetes grandes o delicados."
+|   },
+|   {
+|     tipoServicio: "TransporteMercancias",
+|     nivel: "Estándar",
+|     tarifaFija: 5000,
+|     costoTotal: 0,
+|     descripcion: "Transporte básico de mercancías."
+|   },
+|   {
+|     tipoServicio: "TransporteMercancias",
+|     nivel: "Confort",
+|     tarifaFija: 7500,
+|     costoTotal: 0,
+|     descripcion: "Transporte con mejores tiempos y seguridad."
+|   },
+|   {
+|     tipoServicio: "TransporteMercancias",
+|     nivel: "Large",
+|     tarifaFija: 10000,
+|     costoTotal: 0,
+|     descripcion: "Transporte especializado de alto volumen."
+|   }
+| ]);

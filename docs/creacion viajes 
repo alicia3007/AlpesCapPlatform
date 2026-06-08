@@ -1,0 +1,64 @@
+db.createCollection("viajes", {
+|   validator: {
+|     $jsonSchema: {
+|       bsonType: "object",
+|       required: [
+|         "pasajeroId",
+|         "conductorId",
+|         "vehiculo",
+|         "horaInicio",
+|         "horaFin",
+|         "distanciaKm",
+|         "costoTotal",
+|         "tipoServicio"
+|       ],
+|       properties: {
+|         pasajeroId: { bsonType: "objectId" },
+|         conductorId: { bsonType: "objectId" },
+|         servicioId: { bsonType: "objectId" },
+|         vehiculo: {
+|           bsonType: "object",
+|           required: ["placa", "modelo", "nivel"],
+|           properties: {
+|             placa: { bsonType: "string" },
+|             modelo: { bsonType: "string" },
+|             nivel: { enum: ["Estándar", "Confort", "Large"] }
+|           }
+|         },
+|         horaInicio: { bsonType: "date" },
+|         horaFin: { bsonType: "date" },
+|         distanciaKm: { bsonType: "double" },
+|         costoTotal: { bsonType: "double" },
+|         tipoServicio: {
+|           enum: [
+|             "Pasajeros - Estándar",
+|             "Pasajeros - Confort",
+|             "Pasajeros - Large",
+|             "Comida",
+|             "Mercancías"
+|           ]
+|         },
+|         origen: {
+|           bsonType: "object",
+|           properties: {
+|             lat: { bsonType: "double" },
+|             lon: { bsonType: "double" },
+|             direccion: { bsonType: "string" }
+|           }
+|         },
+|         destino: {
+|           bsonType: "object",
+|           properties: {
+|             lat: { bsonType: "double" },
+|             lon: { bsonType: "double" },
+|             direccion: { bsonType: "string" }
+|           }
+|         },
+|         calificacionConductor: { bsonType: "double" },
+|         calificacionPasajero: { bsonType: "double" },
+|         metodoPago: { bsonType: "string" },
+|         pagoId: { bsonType: "objectId" }
+|       }
+|     }
+|   }
+| })

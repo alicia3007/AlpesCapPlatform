@@ -1,0 +1,104 @@
+db.servicios.insertMany([
+|   {
+|     tipoServicio: "TrayectoPasajeros",
+|     clienteId: ObjectId("66fa00000000000000000101"),
+|     conductorId: ObjectId("692c8b61c986debeebbeaa26"),
+|     vehiculoPlaca: "ABC123",
+|     tarifaId: ObjectId("692c8d2dc986debeebbeaa4c"),
+| 
+|     puntoPartida: {
+|       nombre: "Punto Inicial",
+|       direccion: "Calle 10 #5-20",
+|       ciudad: "Medellín",
+|       coordenadas: { latitud: NumberDecimal("6.2442"), longitud: NumberDecimal("-75.5812") }
+|     },
+| 
+|     puntosLlegada: [
+|       {
+|         nombre: "Destino Principal",
+|         direccion: "Avenida 80 #45-10",
+|         ciudad: "Medellín",
+|         coordenadas: { latitud: NumberDecimal("6.2601"), longitud: NumberDecimal("-75.6011") }
+|       }
+|     ],
+| 
+|     kilometros: NumberDecimal("8.5"),
+|     duracion: 22,
+|     horaInicio: ISODate(),
+|     comision: NumberDecimal("3500.0"),
+|     costoTotal: NumberDecimal("15300.0"),
+|     estado: "completado",
+|     cantidadPasajeros: 2
+|   },
+| 
+|   {
+|     tipoServicio: "Domicilio",
+|     clienteId: ObjectId("66fa00000000000000000102"),
+|     conductorId: ObjectId("692c8b61c986debeebbeaa27"),
+|     vehiculoPlaca: "XYZ987",
+|     tarifaId: ObjectId("692c8d2dc986debeebbeaa4f"),
+|     restauranteId: ObjectId("692c8d2dc986debeebbeaa50"),
+| 
+|     puntoPartida: {
+|       nombre: "Panadería La Estrella",
+|       direccion: "Calle 30 #40-55",
+|       ciudad: "Medellín",
+|       coordenadas: { latitud: NumberDecimal("6.2500"), longitud: NumberDecimal("-75.5900") }
+|     },
+| 
+|     puntosLlegada: [
+|       {
+|         nombre: "Cliente",
+|         direccion: "Carrera 40 #12-33",
+|         ciudad: "Medellín",
+|         coordenadas: { latitud: NumberDecimal("6.2420"), longitud: NumberDecimal("-75.5750") }
+|       }
+|     ],
+| 
+|     kilometros: NumberDecimal("2.7"),
+|     duracion: 12,
+|     horaInicio: ISODate(),
+|     comision: NumberDecimal("1500.0"),
+|     costoTotal: NumberDecimal("4050.0"),
+|     estado: "completado",
+|     valor: NumberDecimal("35000.0"),
+|     cantidadProductos: 3
+|   },
+| 
+|   {
+|     tipoServicio: "TransporteMercancias",
+|     clienteId: ObjectId("66fa00000000000000000103"),
+|     conductorId: ObjectId("692c8b61c986debeebbeaa28"),
+|     vehiculoPlaca: "JKL555",
+|     tarifaId: ObjectId("692c8d2dc986debeebbeaa53"),
+| 
+|     puntoPartida: {
+|       nombre: "Zona Industrial",
+|       direccion: "Calle 50 #60-10",
+|       ciudad: "Medellín",
+|       coordenadas: { latitud: NumberDecimal("6.2700"), longitud: NumberDecimal("-75.5800") }
+|     },
+| 
+|     puntosLlegada: [
+|       {
+|         nombre: "Bodega Central",
+|         direccion: "Calle 33 #65-20",
+|         ciudad: "Medellín",
+|         coordenadas: { latitud: NumberDecimal("6.2480"), longitud: NumberDecimal("-75.5780") }
+|       }
+|     ],
+| 
+|     kilometros: NumberDecimal("14.3"),
+|     duracion: 45,
+|     horaInicio: ISODate(),
+|     comision: NumberDecimal("8000.0"),
+|     costoTotal: NumberDecimal("71500.0"),
+|     estado: "pendiente",
+| 
+|     cantidadObjetos: 4,
+|     mercancias: [
+|       { nombre: "Cajas Plasticas", valor: NumberDecimal("50000.0") },
+|       { nombre: "Paquetes", valor: NumberDecimal("120000.0") }
+|     ]
+|   }
+| ]);

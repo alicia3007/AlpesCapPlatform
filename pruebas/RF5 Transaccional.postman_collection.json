@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "a6559d9a-2e3b-48df-a60a-9f61447935f1",
+		"name": "RF5 Transaccional",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426",
+		"_collection_link": "https://solar-satellite-668714.postman.co/workspace/My-Workspace~0f3d6b04-f767-431f-8b8b-47b684b80780/collection/41343426-a6559d9a-2e3b-48df-a60a-9f61447935f1?action=share&source=collection_link&creator=41343426"
+	},
+	"item": [
+		{
+			"name": "Registrar disponibilidad",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "idConductor",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idVehiculo",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "tipoServicio",
+							"value": "PASAJEROS",
+							"type": "text"
+						},
+						{
+							"key": "diaInicio",
+							"value": "2025-11-04",
+							"type": "text"
+						},
+						{
+							"key": "diaFin",
+							"value": "2025-11-08",
+							"type": "text"
+						},
+						{
+							"key": "horaInicio",
+							"value": "8:00",
+							"type": "text"
+						},
+						{
+							"key": "horaFin",
+							"value": "17:00",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/disponibilidades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"disponibilidades"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,29 @@
+db.createCollection("tarifas", {
+|   validator: {
+|     $jsonSchema: {
+|       bsonType: "object",
+|       required: ["tipoServicio", "nivel", "tarifaFija"],
+|       properties: {
+|         tipoServicio: {
+|           bsonType: "string",
+|           enum: ["TrayectoPasajeros", "Domicilio", "TransporteMercancias"],
+|           description: "Tipo de servicio"
+|         },
+|         nivel: {
+|           bsonType: "string",
+|           enum: ["Estándar", "Confort", "Premium"],
+|           description: "Nivel del servicio"
+|         },
+|         tarifaFija: {
+|           bsonType: "double",
+|           minimum: 0,
+|           description: "Tarifa por kilómetro"
+|         },
+|         descripcion: {
+|           bsonType: "string",
+|           description: "Descripción de la tarifa"
+|         }
+|       }
+|     }
+|   }
+| });

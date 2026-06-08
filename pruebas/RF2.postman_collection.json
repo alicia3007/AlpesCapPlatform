@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "0f2511b4-851b-48d9-b5a2-ab2508316a94",
+		"name": "RF2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426",
+		"_collection_link": "https://solar-satellite-668714.postman.co/workspace/My-Workspace~0f3d6b04-f767-431f-8b8b-47b684b80780/collection/41343426-0f2511b4-851b-48d9-b5a2-ab2508316a94?action=share&source=collection_link&creator=41343426"
+	},
+	"item": [
+		{
+			"name": "Get clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/clientes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Juan Pérez",
+							"type": "text"
+						},
+						{
+							"key": "correo",
+							"value": "juanperez@example.com",
+							"type": "text"
+						},
+						{
+							"key": "celular",
+							"value": "3001234567",
+							"type": "text"
+						},
+						{
+							"key": "cedula",
+							"value": "1098765432",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/clientes/301/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"301",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar cliente sin nombre",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "correo",
+							"value": "ola@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "celular",
+							"value": "3107786547",
+							"type": "text"
+						},
+						{
+							"key": "cedula",
+							"value": "10327654890",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

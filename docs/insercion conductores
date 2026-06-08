@@ -1,0 +1,282 @@
+db.conductores.insertMany([
+|   {
+|     tipo: "conductor",
+|     nombre: "Carlos Martínez",
+|     correo: "carlos.martinez@example.com",
+|     numero: "3001112233",
+|     cedula: "1003003001",
+|     totalComisiones: 1250000,
+|     calificacionPromedio: 4.7,
+|     totalRevisiones: 18,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "ABC123", marca: "Chevrolet", modelo: 2018, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Luis Fernández",
+|     correo: "luis.fernandez@example.com",
+|     numero: "3002223344",
+|     cedula: "1003003002",
+|     totalComisiones: 980000,
+|     calificacionPromedio: 4.5,
+|     totalRevisiones: 22,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "BCD234", marca: "Renault", modelo: 2020, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Ana Rodríguez",
+|     correo: "ana.rodriguez@example.com",
+|     numero: "3003334455",
+|     cedula: "1003003003",
+|     totalComisiones: 1500000,
+|     calificacionPromedio: 4.9,
+|     totalRevisiones: 30,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "CDE345", marca: "Mazda", modelo: 2019, capacidad: 5 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Jorge Pérez",
+|     correo: "jorge.perez@example.com",
+|     numero: "3004445566",
+|     cedula: "1003003004",
+|     totalComisiones: 1100000,
+|     calificacionPromedio: 4.3,
+|     totalRevisiones: 10,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "DEF456", marca: "Kia", modelo: 2017, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "María Gómez",
+|     correo: "maria.gomez@example.com",
+|     numero: "3005556677",
+|     cedula: "1003003005",
+|     totalComisiones: 890000,
+|     calificacionPromedio: 4.1,
+|     totalRevisiones: 12,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "EFG567", marca: "Hyundai", modelo: 2021, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Pedro Sánchez",
+|     correo: "pedro.sanchez@example.com",
+|     numero: "3006667788",
+|     cedula: "1003003006",
+|     totalComisiones: 1340000,
+|     calificacionPromedio: 4.6,
+|     totalRevisiones: 27,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "FGH678", marca: "Toyota", modelo: 2018, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Camila Rojas",
+|     correo: "camila.rojas@example.com",
+|     numero: "3007778899",
+|     cedula: "1003003007",
+|     totalComisiones: 1000000,
+|     calificacionPromedio: 4.8,
+|     totalRevisiones: 19,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "GHI789", marca: "Nissan", modelo: 2019, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Andrés Herrera",
+|     correo: "andres.herrera@example.com",
+|     numero: "3008889900",
+|     cedula: "1003003008",
+|     totalComisiones: 760000,
+|     calificacionPromedio: 4.0,
+|     totalRevisiones: 8,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "HIJ890", marca: "Ford", modelo: 2016, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Laura Jiménez",
+|     correo: "laura.jimenez@example.com",
+|     numero: "3009990011",
+|     cedula: "1003003009",
+|     totalComisiones: 1120000,
+|     calificacionPromedio: 4.4,
+|     totalRevisiones: 16,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "IJK901", marca: "Volkswagen", modelo: 2022, capacidad: 5 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Felipe Torres",
+|     correo: "felipe.torres@example.com",
+|     numero: "3011112233",
+|     cedula: "1003003010",
+|     totalComisiones: 990000,
+|     calificacionPromedio: 4.2,
+|     totalRevisiones: 14,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "JKL012", marca: "Chevrolet", modelo: 2015, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Daniela Castro",
+|     correo: "daniela.castro@example.com",
+|     numero: "3012223344",
+|     cedula: "1003003011",
+|     totalComisiones: 1400000,
+|     calificacionPromedio: 4.9,
+|     totalRevisiones: 22,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "KLM123", marca: "Mazda", modelo: 2021, capacidad: 5 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Sergio Cárdenas",
+|     correo: "sergio.cardenas@example.com",
+|     numero: "3013334455",
+|     cedula: "1003003012",
+|     totalComisiones: 875000,
+|     calificacionPromedio: 4.0,
+|     totalRevisiones: 9,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "LMN234", marca: "Kia", modelo: 2016, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Valentina Duarte",
+|     correo: "valentina.duarte@example.com",
+|     numero: "3014445566",
+|     cedula: "1003003013",
+|     totalComisiones: 1360000,
+|     calificacionPromedio: 4.7,
+|     totalRevisiones: 21,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "MNO345", marca: "Toyota", modelo: 2020, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Ricardo Mendoza",
+|     correo: "ricardo.mendoza@example.com",
+|     numero: "3015556677",
+|     cedula: "1003003014",
+|     totalComisiones: 1010000,
+|     calificacionPromedio: 4.3,
+|     totalRevisiones: 13,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "NOP456", marca: "Nissan", modelo: 2022, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Juliana Patiño",
+|     correo: "juliana.patino@example.com",
+|     numero: "3016667788",
+|     cedula: "1003003015",
+|     totalComisiones: 940000,
+|     calificacionPromedio: 4.2,
+|     totalRevisiones: 11,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "OPQ567", marca: "Hyundai", modelo: 2017, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Mateo Silva",
+|     correo: "mateo.silva@example.com",
+|     numero: "3017778899",
+|     cedula: "1003003016",
+|     totalComisiones: 1220000,
+|     calificacionPromedio: 4.6,
+|     totalRevisiones: 17,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "PQR678", marca: "Ford", modelo: 2018, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Sara Villalba",
+|     correo: "sara.villalba@example.com",
+|     numero: "3018889900",
+|     cedula: "1003003017",
+|     totalComisiones: 1080000,
+|     calificacionPromedio: 4.5,
+|     totalRevisiones: 20,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "QRS789", marca: "Volkswagen", modelo: 2019, capacidad: 5 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Diego Castaño",
+|     correo: "diego.castano@example.com",
+|     numero: "3019990011",
+|     cedula: "1003003018",
+|     totalComisiones: 830000,
+|     calificacionPromedio: 4.1,
+|     totalRevisiones: 9,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "RST890", marca: "Chevrolet", modelo: 2014, capacidad: 4 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Isabella Ortiz",
+|     correo: "isabella.ortiz@example.com",
+|     numero: "3021112233",
+|     cedula: "1003003019",
+|     totalComisiones: 1180000,
+|     calificacionPromedio: 4.8,
+|     totalRevisiones: 23,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "STU901", marca: "Mazda", modelo: 2023, capacidad: 5 }
+|     ]
+|   },
+|   {
+|     tipo: "conductor",
+|     nombre: "Óscar Ruiz",
+|     correo: "oscar.ruiz@example.com",
+|     numero: "3022223344",
+|     cedula: "1003003020",
+|     totalComisiones: 900000,
+|     calificacionPromedio: 4.0,
+|     totalRevisiones: 10,
+|     revisionesRecibidas: [],
+|     vehiculos: [
+|       { placa: "TUV012", marca: "Kia", modelo: 2015, capacidad: 4 }
+|     ]
+|   }
+| ])

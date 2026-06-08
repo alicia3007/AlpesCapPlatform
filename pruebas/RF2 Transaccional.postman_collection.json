@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "9ab545d2-17de-4272-ad99-0b7a89435654",
+		"name": "RF2 Transaccional",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426",
+		"_collection_link": "https://solar-satellite-668714.postman.co/workspace/My-Workspace~0f3d6b04-f767-431f-8b8b-47b684b80780/collection/41343426-9ab545d2-17de-4272-ad99-0b7a89435654?action=share&source=collection_link&creator=41343426"
+	},
+	"item": [
+		{
+			"name": "Registrar cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clientes?nombre=Juan Pérez&cedula=1234567890&correo=juan.perez@email.com&celular=3001234567",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Juan Pérez"
+						},
+						{
+							"key": "cedula",
+							"value": "1234567890"
+						},
+						{
+							"key": "correo",
+							"value": "juan.perez@email.com"
+						},
+						{
+							"key": "celular",
+							"value": "3001234567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar cliente cédula duplicada",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clientes?nombre=Pedro González&cedula=1234567890&correo=pedro@email.com&celular=3009876543",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Pedro González"
+						},
+						{
+							"key": "cedula",
+							"value": "1234567890"
+						},
+						{
+							"key": "correo",
+							"value": "pedro@email.com"
+						},
+						{
+							"key": "celular",
+							"value": "3009876543"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar cliente con correo duplicado",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clientes?nombre=María López&cedula=9876543210&correo=juan.perez@email.com&celular=3005555555",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "María López"
+						},
+						{
+							"key": "cedula",
+							"value": "9876543210"
+						},
+						{
+							"key": "correo",
+							"value": "juan.perez@email.com"
+						},
+						{
+							"key": "celular",
+							"value": "3005555555"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

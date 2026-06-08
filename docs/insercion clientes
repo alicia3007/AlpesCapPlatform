@@ -1,0 +1,26 @@
+db.clientes.insertMany([
+|   {
+|     _id: ObjectId("66fa00000000000000000101"),
+|     tipo: "cliente",
+|     nombre: "Juan Perez",
+|     correo: "juan.perez@example.com",
+|     numero: "3001112233",
+|     cedula: "1012345678"
+|   },
+|   {
+|     _id: ObjectId("66fa00000000000000000102"),
+|     tipo: "cliente",
+|     nombre: "Maria Gomez",
+|     correo: "maria.gomez@example.com",
+|     numero: "3002223344",
+|     cedula: "1023456789"
+|   },
+|   {
+|     _id: ObjectId("66fa00000000000000000103"),
+|     tipo: "cliente",
+|     nombre: "Carlos Rodriguez",
+|     correo: "carlos.rod@example.com",
+|     numero: "3003334455",
+|     cedula: "1034567890"
+|   }
+| ]);

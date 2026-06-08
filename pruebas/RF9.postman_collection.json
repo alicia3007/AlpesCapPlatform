@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "1e2fddf0-6d27-47c1-bfde-27b75b31bc25",
+		"name": "RF9",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426",
+		"_collection_link": "https://solar-satellite-668714.postman.co/workspace/My-Workspace~0f3d6b04-f767-431f-8b8b-47b684b80780/collection/41343426-1e2fddf0-6d27-47c1-bfde-27b75b31bc25?action=share&source=collection_link&creator=41343426"
+	},
+	"item": [
+		{
+			"name": "Get servicios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/servicios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar un servicio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tipoServicio",
+							"value": "PASAJEROS",
+							"type": "text"
+						},
+						{
+							"key": "idCliente",
+							"value": "101",
+							"type": "text"
+						},
+						{
+							"key": "idConductor",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idVehiculo",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "idTarifa",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "duracionMinutos",
+							"value": "30",
+							"type": "text"
+						},
+						{
+							"key": "horaInicio",
+							"value": " 2024-01-02 02:10:00",
+							"type": "text"
+						},
+						{
+							"key": "horaFin",
+							"value": "2024-01-02 02:40:00",
+							"type": "text"
+						},
+						{
+							"key": "nivelAplicado",
+							"value": "ESTANDAR",
+							"type": "text"
+						},
+						{
+							"key": "tarifaKmAplicada",
+							"value": "10000",
+							"type": "text"
+						},
+						{
+							"key": "porcentajeComision",
+							"value": "0.1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/servicios/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicios",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Conductor Disponible",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "valor",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/conductores/1/disponible",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"conductores",
+						"1",
+						"disponible"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Completar Servicio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "horaFin",
+							"value": "2024-01-02T02:40",
+							"type": "text"
+						},
+						{
+							"key": "duracionMinutos",
+							"value": "30",
+							"type": "text"
+						},
+						{
+							"key": "distanciaKm",
+							"value": "15.5",
+							"type": "text"
+						},
+						{
+							"key": "idConductor",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/servicios/1026/finalizar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicios",
+						"1026",
+						"finalizar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conductor disponible",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "valor",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/conductores/1/disponible",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"conductores",
+						"1",
+						"disponible"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

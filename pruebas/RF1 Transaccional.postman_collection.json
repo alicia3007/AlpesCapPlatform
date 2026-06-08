@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "2e7117e1-dcb8-4939-8379-ea5dd489177a",
+		"name": "RF1 Transaccional",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426",
+		"_collection_link": "https://solar-satellite-668714.postman.co/workspace/My-Workspace~0f3d6b04-f767-431f-8b8b-47b684b80780/collection/41343426-2e7117e1-dcb8-4939-8379-ea5dd489177a?action=share&source=collection_link&creator=41343426"
+	},
+	"item": [
+		{
+			"name": "Registrar ciudad existente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/ciudades?nombre=Bogotá",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ciudades"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Bogotá"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar nueva ciudad",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/ciudades?nombre=Rizaralda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ciudades"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Rizaralda"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de ciudades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ciudades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ciudades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar ciudad duplicada",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/ciudades?nombre=Rizaralda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ciudades"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Rizaralda"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

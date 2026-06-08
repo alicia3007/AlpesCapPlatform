@@ -1,0 +1,31 @@
+db.createCollection("tarjetas", {
+|   validator: {
+|     $jsonSchema: {
+|       bsonType: "object",
+|       required: ["numero", "nombreTarjeta", "fechaVencimiento", "codigo", "clienteId"],
+|       properties: {
+|         numero: {
+|           bsonType: "string",
+|           description: "Número de la tarjeta"
+|         },
+|         nombreTarjeta: {
+|           bsonType: "string",
+|           description: "Nombre en la tarjeta"
+|         },
+|         fechaVencimiento: {
+|           bsonType: "string",
+|           pattern: "^(0[1-9]|1[0-2])\\/[0-9]{2}$",
+|           description: "Fecha de vencimiento en formato MM/YY"
+|         },
+|         codigo: {
+|           bsonType: "string",
+|           description: "Código de seguridad (CVV)"
+|         },
+|         clienteId: {
+|           bsonType: "objectId",
+|           description: "ID del cliente dueño de la tarjeta"
+|         }
+|       }
+|     }
+|   }
+| });

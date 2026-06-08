@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "c9e0ff78-0c8d-448d-a682-706388e19e92",
+		"name": "RF11",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426",
+		"_collection_link": "https://solar-satellite-668714.postman.co/workspace/My-Workspace~0f3d6b04-f767-431f-8b8b-47b684b80780/collection/41343426-c9e0ff78-0c8d-448d-a682-706388e19e92?action=share&source=collection_link&creator=41343426"
+	},
+	"item": [
+		{
+			"name": "Listar revisiones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/revisiones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"revisiones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Revisiones Conductor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/revisiones/conductor/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"revisiones",
+						"conductor",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear revision conductor autorizado",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "idConductor",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "calificacion",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "comentario",
+							"value": "Cliente muy amable y puntual",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/servicios/1/revision/conductor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicios",
+						"1",
+						"revision",
+						"conductor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear revision conductor no autorizado",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "idConductor",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "calificacion",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "comentario",
+							"value": "Buen cliente",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/servicios/1/revision/conductor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicios",
+						"1",
+						"revision",
+						"conductor"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,75 @@
+db.createCollection("clientes", { 
+|   validator: {
+|     $jsonSchema: {
+|       bsonType: "object",
+|       required: ["tipo", "nombre", "correo", "numero", "cedula"],
+|       properties: {
+|         tipo: {
+|           bsonType: "string",
+|           enum: ["cliente"],
+|           description: "Debe ser 'cliente'"
+|         },
+|         nombre: {
+|           bsonType: "string",
+|           description: "Nombre del cliente"
+|         },
+|         correo: {
+|           bsonType: "string",
+|           pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+|           description: "Correo electrónico del cliente"
+|         },
+|         numero: {
+|           bsonType: "string",
+|           description: "Número de celular del cliente"
+|         },
+|         cedula: {
+|           bsonType: "string",
+|           description: "Cédula del cliente"
+|         },
+|         calificacionPromedio: {
+|           bsonType: "double",
+|           minimum: 0,
+|           maximum: 5,
+|           description: "Calificación promedio del cliente (0-5)"
+|         },
+|         totalRevisiones: {
+|           bsonType: "int",
+|           minimum: 0,
+|           description: "Total de revisiones recibidas"
+|         },
+|         revisionesRecibidas: {
+|           bsonType: "array",
+|           description: "Revisiones que el cliente ha recibido de conductores (EMBEBIDO)",
+|           items: {
+|             bsonType: "object",
+|             required: ["servicioId", "conductorId", "evaluacion", "fecha"],
+|             properties: {
+|               servicioId: {
+|                 bsonType: "objectId",
+|                 description: "ID del servicio asociado"
+|               },
+|               conductorId: {
+|                 bsonType: "objectId",
+|                 description: "ID del conductor que hizo la revisión"
+|               },
+|               evaluacion: {
+|                 bsonType: "int",
+|                 minimum: 0,
+|                 maximum: 5,
+|                 description: "Calificación de 0 a 5"
+|               },
+|               comentario: {
+|                 bsonType: "string",
+|                 description: "Comentario del conductor"
+|               },
+|               fecha: {
+|                 bsonType: "date",
+|                 description: "Fecha de la revisión"
+|               }
+|             }
+|           }
+|         }
+|       }
+|     }
+|   }
+| });
