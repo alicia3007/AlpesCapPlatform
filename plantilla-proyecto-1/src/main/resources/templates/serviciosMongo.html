@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Servicios (Mongo)</title>
+</head>
+<body>
+<h1>Servicios registrados</h1>
+<p><a th:href="@{/mongo/servicios/new}">Solicitar nuevo servicio</a></p>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>ConductorId</th>
+        <th>Origen</th>
+        <th>Destino</th>
+        <th>Tarifa</th>
+        <th>Estado</th>
+        <th>FechaSolicitud</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="s : ${servicios}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.clienteId}"></td>
+        <td th:text="${s.conductorId}"></td>
+        <td>
+            <span th:text="${s.puntoPartidaDireccion}"></span><br/>
+            <small th:if="${s.puntoPartidaLat != null}" th:text="${s.puntoPartidaLat} + ',' + ${s.puntoPartidaLng}"></small>
+        </td>
+        <td>
+            <span th:text="${s.destinoDireccion}"></span><br/>
+            <small th:if="${s.destinoLat != null}" th:text="${s.destinoLat} + ',' + ${s.destinoLng}"></small>
+        </td>
+        <td th:text="${s.costoTotal}"></td>
+        <td th:text="${s.estado}"></td>
+        <td th:text="${s.horaInicio}"></td>
+        <td><a th:href="@{'/mongo/servicios/' + ${s.id}}">Ver</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

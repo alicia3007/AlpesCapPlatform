@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Historial de servicios del usuario</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        th { background: #f5f5f5; }
+    </style>
+    </head>
+<body>
+    <h1>Historial de servicios del usuario</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Servicio</th>
+                <th>Tipo</th>
+                <th>Inicio</th>
+                <th>Fin</th>
+                <th>Costo</th>
+                <th>Partida</th>
+                <th>Llegada</th>
+                <th>Conductor</th>
+                <th>Placa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="fila : ${historial}">
+                <td th:text="${fila[0]}"></td>
+                <td th:text="${fila[1]}"></td>
+                <td th:text="${fila[2]}"></td>
+                <td th:text="${fila[3]}"></td>
+                <td th:text="${fila[4]}"></td>
+                <td th:text="${fila[5]}"></td>
+                <td th:text="${fila[6]}"></td>
+                <td th:text="${fila[7]}"></td>
+                <td th:text="${fila[8]}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        Pruebas de concurrencia:
+        <a th:href="@{'/usuarios/' + ${idUsuario} + '/historial-servicios/rc'}">READ_COMMITTED</a> |
+        <a th:href="@{'/usuarios/' + ${idUsuario} + '/historial-servicios/serializable'}">SERIALIZABLE</a>
+    </p>
+</body>
+</html>

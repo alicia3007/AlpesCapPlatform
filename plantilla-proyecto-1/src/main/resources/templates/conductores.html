@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Conductores</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Registro de Conductores</h1>
+
+
+    <h3 class="mb-3">Conductores registrados</h3>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>ID Usuario</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Celular</th>
+            <th>Cédula</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="conductor : ${conductores}">
+            <td th:text="${conductor.idUsuario}"></td>
+            <td th:text="${conductor.usuario.nombre}"></td>
+            <td th:text="${conductor.usuario.correo}"></td>
+            <td th:text="${conductor.usuario.celular}"></td>
+            <td th:text="${conductor.usuario.cedula}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Registro Cliente (MongoDB)</title>
+</head>
+<body>
+<h1>Registrar Cliente (MongoDB)</h1>
+
+<div th:if="${error}" style="color: red;">[[${error}]]</div>
+
+<form th:action="@{/mongo/clientes/new/save}" method="post" th:object="${cliente}">
+    <label>Nombre: <input type="text" th:field="*{nombre}" required/></label><br/>
+    <label>Correo: <input type="email" th:field="*{correo}" required/></label><br/>
+    <label>Teléfono: <input type="text" th:field="*{numero}" required/></label><br/>
+    <label>Cédula: <input type="text" th:field="*{cedula}" required/></label><br/>
+    <input type="hidden" th:field="*{tipo}" value="cliente" />
+    <button type="submit">Registrar</button>
+</form>
+
+<p><a th:href="@{/mongo/clientes}">Ver clientes en MongoDB</a></p>
+<p><a th:href="@{/clientes}">Ver clientes (JPA/Oracle)</a></p>
+</body>
+</html>

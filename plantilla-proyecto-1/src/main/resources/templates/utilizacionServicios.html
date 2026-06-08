@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Utilización de servicios por ciudad</title>
+</head>
+<body>
+    <h1>Utilización de servicios por ciudad</h1>
+
+    <form method="get" th:action="@{/servicios/utilizacion}">
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" th:value="${ciudad}" />
+
+        <label for="fechaInicio">Fecha inicio (yyyy-MM-dd):</label>
+        <input type="date" id="fechaInicio" name="fechaInicio" th:value="${fechaInicio != null ? #dates.format(fechaInicio, 'yyyy-MM-dd') : ''}" />
+
+        <label for="fechaFin">Fecha fin (yyyy-MM-dd):</label>
+        <input type="date" id="fechaFin" name="fechaFin" th:value="${fechaFin != null ? #dates.format(fechaFin, 'yyyy-MM-dd') : ''}" />
+
+        <button type="submit">Consultar</button>
+    </form>
+
+    <div th:if="${resultados}">
+        <h2 th:text="${'Resultados para ' + (ciudad != null ? ciudad : '')}"></h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Posición</th>
+                    <th>Tipo de servicio</th>
+                    <th>Nivel aplicado</th>
+                    <th>Total de servicios</th>
+                    <th>Porcentaje del total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="fila, iterStat : ${resultados}">
+                    <td th:text="${iterStat.index + 1}"></td>
+                    <td th:text="${fila[1]}"></td>
+                    <td th:text="${fila[2]}"></td>
+                    <td th:text="${fila[3]}"></td>
+                    <td th:text="${fila[4]}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>
+        <a th:href="@{/}">Volver al inicio</a>
+    </p>
+</body>
+</html>

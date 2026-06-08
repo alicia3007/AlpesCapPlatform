@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Detalle servicio</title>
+</head>
+<body>
+<h1>Detalle servicio</h1>
+<div th:if="${servicio} == null">Servicio no encontrado</div>
+<div th:if="${servicio} != null">
+    <p><strong>ID:</strong> <span th:text="${servicio.id}"></span></p>
+    <p><strong>Cliente:</strong> <span th:text="${servicio.clienteId}"></span></p>
+    <p><strong>Conductor:</strong> <span th:text="${servicio.conductorId}"></span></p>
+    <p><strong>Origen:</strong> <span th:text="${servicio.puntoPartidaDireccion}"></span>
+        (<span th:text="${servicio.puntoPartidaLat}"></span>, <span th:text="${servicio.puntoPartidaLng}"></span>)</p>
+    <p><strong>Destino:</strong> <span th:text="${servicio.destinoDireccion}"></span>
+        (<span th:text="${servicio.destinoLat}"></span>, <span th:text="${servicio.destinoLng}"></span>)</p>
+    <p><strong>Tarifa (costoTotal):</strong> <span th:text="${servicio.costoTotal}"></span></p>
+    <p><strong>Estado:</strong> <span th:text="${servicio.estado}"></span></p>
+    <p><a th:href="@{/mongo/servicios}">Volver</a></p>
+</div>
+</body>
+</html>

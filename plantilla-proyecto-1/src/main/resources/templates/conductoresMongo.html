@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Conductores (MongoDB)</title>
+</head>
+<body>
+<h1>Conductores registrados en MongoDB</h1>
+
+<p><a th:href="@{/mongo/conductores/new}">Registrar nuevo conductor (Mongo)</a></p>
+
+<div th:if="${dbName}">
+    <strong>Base de datos:</strong> <span th:text="${dbName}"></span>
+    <br/>
+    <strong>Colecciones detectadas:</strong>
+    <ul>
+        <li th:each="col : ${collections}" th:text="${col}"></li>
+    </ul>
+    <div th:if="${dbError}" style="color: red;">[[${dbError}]]</div>
+</div>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+        <th>Cédula</th>
+        <th>TotalComisiones</th>
+        <th>CalificacionPromedio</th>
+        <th>TotalRevisiones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c : ${conductores}">
+        <td th:text="${c.id}"></td>
+        <td th:text="${c.tipo}"></td>
+        <td th:text="${c.nombre}"></td>
+        <td th:text="${c.correo}"></td>
+        <td th:text="${c.numero}"></td>
+        <td th:text="${c.cedula}"></td>
+        <td th:text="${c.totalComisiones}"></td>
+        <td th:text="${c.calificacionPromedio}"></td>
+        <td th:text="${c.totalRevisiones}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<p><a th:href="@{/mongo/clientes}">Ver clientes (Mongo)</a></p>
+</body>
+</html>

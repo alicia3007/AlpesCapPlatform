@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Disponibilidades (MongoDB)</title>
+</head>
+<body>
+<h1>Disponibilidades registradas en MongoDB</h1>
+
+<p><a th:href="@{/mongo/disponibilidades/new}">Registrar nueva disponibilidad</a></p>
+
+<div th:if="${dbName}">
+    <strong>Base de datos:</strong> <span th:text="${dbName}"></span>
+    <br/>
+    <strong>Colecciones detectadas:</strong>
+    <ul>
+        <li th:each="col : ${collections}" th:text="${col}"></li>
+    </ul>
+    <div th:if="${dbError}" style="color: red;">[[${dbError}]]</div>
+</div>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>ConductorId</th>
+        <th>Acciones</th>
+        <th>Vehículo</th>
+        <th>Día</th>
+        <th>HoraInicio</th>
+        <th>HoraFin</th>
+        <th>TipoServicio</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="d : ${disponibilidades}">
+        <td th:text="${d.id}"></td>
+        <td th:text="${d.conductorId}"></td>
+        <td><a th:href="@{'/mongo/disponibilidades/' + ${d.id} + '/edit'}">Editar</a></td>
+        <td>
+            <span th:text="${d.vehiculo != null ? d.vehiculo.placa : d.vehiculoPlaca}"></span>
+            <br/>
+            <small th:text="${d.vehiculo != null ? d.vehiculo.modelo : ''}"></small>
+            <br/>
+            <small>Capacidad: <span th:text="${d.vehiculo != null ? d.vehiculo.capacidad : ''}"></span></small>
+            <br/>
+            <small>Nivel: <span th:text="${d.vehiculo != null ? d.vehiculo.nivel : ''}"></span></small>
+        </td>
+        <td th:text="${d.diaSemana}"></td>
+        <td th:text="${d.horaInicio}"></td>
+        <td th:text="${d.horaFin}"></td>
+        <td th:text="${d.tipoServicio}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<p><a th:href="@{/mongo/conductores}">Ver conductores (Mongo)</a></p>
+</body>
+</html>

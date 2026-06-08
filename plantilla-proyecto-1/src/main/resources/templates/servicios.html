@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Servicios registrados</title>
+</head>
+<body>
+    <h1>Lista de servicios</h1>
+
+    <a th:href="@{/servicios/new}">Registrar nuevo servicio</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo de Servicio</th>
+                <th>Cliente</th>
+                <th>Conductor</th>
+                <th>Vehículo</th>
+                <th>Tarifa</th>
+                <th>Duración (min)</th>
+                <th>Hora Inicio</th>
+                <th>Hora Fin</th>
+                <th>Nivel Aplicado</th>
+                <th>Tarifa/km</th>
+                <th>% Comisión</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="s : ${servicios}">
+                <td th:text="${s.idServicio}"></td>
+                <td th:text="${s.tipoServicio}"></td>
+                <td th:text="${s.cliente != null ? s.cliente.usuario.nombre : '—'}"></td>
+                <td th:text="${s.conductor != null ? s.conductor.usuario.nombre : '—'}"></td>
+                <td th:text="${s.vehiculo != null ? s.vehiculo.placa : '—'}"></td>
+                <td th:text="${s.tarifa != null ? s.tarifa.idTarifa : '—'}"></td>
+                <td th:text="${s.duracionMinutos}"></td>
+                <td th:text="${#dates.format(s.horaInicio, 'yyyy-MM-dd HH:mm')}"></td>
+                <td th:text="${#dates.format(s.horaFin, 'yyyy-MM-dd HH:mm')}"></td>
+                <td th:text="${s.nivelAplicado}"></td>
+                <td th:text="${s.tarifaKmAplicada}"></td>
+                <td th:text="${s.porcentajeComision}"></td>
+        </tbody>
+    </table>
+</body>
+</html>

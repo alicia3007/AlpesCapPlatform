@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Viajes registrados</title>
+</head>
+<body>
+    <h1>Lista de viajes</h1>
+    <a th:href="@{/mongo/viajes/nuevo}">Registrar nuevo viaje</a>
+
+    <form method="get" th:action="@{/mongo/viajes}">
+        <label for="clienteId">Filtrar por cliente:</label>
+        <select id="clienteId" name="clienteId">
+            <option value="" th:selected="${selectedCliente == null || selectedCliente == ''}">-- Todos --</option>
+            <option th:each="c : ${clients}" th:value="${c.id}" th:text="${c.nombre}" th:selected="${c.id == selectedCliente}"></option>
+        </select>
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>PasajeroId</th>
+                <th>ConductorId</th>
+                <th>ServicioId</th>
+                <th>Tipo</th>
+                <th>Vehículo</th>
+                <th>Hora Inicio</th>
+                <th>Hora Fin</th>
+                <th>Distancia (km)</th>
+                <th>Costo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="v : ${viajes}">
+                <td th:text="${v.id}"></td>
+                <td th:text="${v.pasajeroId}"></td>
+                <td th:text="${v.conductorId}"></td>
+                <td th:text="${v.servicioId}"></td>
+                <td th:text="${v.tipoServicio}"></td>
+                <td th:text="${v.vehiculo != null ? v.vehiculo.placa : '-'}"></td>
+                <td th:text="${v.horaInicio != null ? #dates.format(v.horaInicio, 'yyyy-MM-dd HH:mm') : '-'}"></td>
+                <td th:text="${v.horaFin != null ? #dates.format(v.horaFin, 'yyyy-MM-dd HH:mm') : '-'}"></td>
+                <td th:text="${v.distanciaKm}"></td>
+                <td th:text="${v.costoTotal}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div th:if="${msg}">
+        <p th:text="${msg}"></p>
+    </div>
+    <div th:if="${error}">
+        <p style="color:red;" th:text="${error}"></p>
+    </div>
+</body>
+</html>

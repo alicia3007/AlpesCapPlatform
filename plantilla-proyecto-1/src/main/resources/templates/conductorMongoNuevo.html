@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Registro Conductor (MongoDB)</title>
+</head>
+<body>
+<h1>Registrar Conductor (MongoDB)</h1>
+
+<div th:if="${error}" style="color: red;">[[${error}]]</div>
+
+<form th:action="@{/mongo/conductores/new/save}" method="post" th:object="${conductor}">
+    <label>Nombre: <input type="text" th:field="*{nombre}" required/></label><br/>
+    <label>Correo: <input type="email" th:field="*{correo}" required/></label><br/>
+    <label>Teléfono: <input type="text" th:field="*{numero}" required/></label><br/>
+    <label>Cédula: <input type="text" th:field="*{cedula}" required/></label><br/>
+
+    <label>Total Comisiones: <input type="number" th:field="*{totalComisiones}" step="1"/></label><br/>
+    <label>Calificación Promedio: <input type="number" th:field="*{calificacionPromedio}" step="0.1"/></label><br/>
+    <label>Total Revisiones: <input type="number" th:field="*{totalRevisiones}" step="1"/></label><br/>
+
+    <h3>Vehículo principal</h3>
+    <label>Placa: <input type="text" th:field="*{vehiculos[0].placa}" required/></label><br/>
+    <label>Marca: <input type="text" th:field="*{vehiculos[0].marca}" required/></label><br/>
+    <label>Modelo: <input type="number" th:field="*{vehiculos[0].modelo}" step="1" required/></label><br/>
+    <label>Capacidad: <input type="number" th:field="*{vehiculos[0].capacidad}" step="1" required/></label><br/>
+
+    <input type="hidden" th:field="*{tipo}" value="conductor" />
+    <button type="submit">Registrar</button>
+</form>
+
+<p><a th:href="@{/mongo/conductores}">Ver conductores en MongoDB</a></p>
+<p><a th:href="@{/mongo/clientes}">Ver clientes (Mongo)</a></p>
+</body>
+</html>

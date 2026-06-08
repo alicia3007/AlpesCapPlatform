@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Nuevo Punto</title></head>
+<body>
+  <h1>Registrar Punto</h1>
+
+  <div th:if="${error}" style="color:red;">
+    <p th:text="${error}"></p>
+  </div>
+
+  <form th:action="@{/puntos/new/save}" method="post">
+    <label>Nombre</label>
+    <input type="text" name="nombre"/><br/>
+    <label>Dirección</label>
+    <input type="text" name="direccion"/><br/>
+    <label>Latitud</label>
+    <input type="text" name="latitud"/><br/>
+    <label>Longitud</label>
+    <input type="text" name="longitud"/><br/>
+    <label>Ciudad</label>
+    <select name="idCiudad" th:each="c : ${ciudades}" th:value="${c.idCiudad}" th:text="${c.nombre}"></select><br/>
+    <button type="submit">Guardar</button>
+  </form>
+
+  <p><a th:href="@{/puntos}">Volver a puntos</a></p>
+</body>
+</html>

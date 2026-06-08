@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarifas</title>
+</head>
+<body>
+    <h1>Lista de Tarifas</h1>
+
+    <a th:href="@{/tarifas/new}">Registrar nueva tarifa</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo de Servicio</th>
+                <th>Nivel</th>
+                <th>Valor por km</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="t : ${tarifas}">
+                <td th:text="${t.idTarifa}"></td>
+                <td th:text="${t.tipoServicio}"></td>
+                <td th:text="${t.nivel}"></td>
+                <td th:text="${t.valorKm}"></td>
+                <td>
+                    <a th:href="@{|/tarifas/${t.idTarifa}/edit|}">Editar</a>
+                    &nbsp;|&nbsp;
+                    <a th:href="@{|/tarifas/${t.idTarifa}/delete|}" 
+                       onclick="return confirm('¿Eliminar esta tarifa?');">Eliminar</a>
+                </td>
+            </tr>
+
+            <tr th:if="${#lists.isEmpty(tarifas)}">
+                <td colspan="5">No hay tarifas registradas.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
